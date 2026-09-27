@@ -1,3 +1,4 @@
+(this project made by ai, i'm just monitor ai and create and develop structures)
 # SEO Semantic Auditor
 
 [![Rust](https://img.shields.io/badge/rust-1.70+-orange.svg)](https://www.rust-lang.org)
