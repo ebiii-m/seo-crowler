@@ -1,0 +1,48 @@
+site:
+  url: https://example.com
+
+crawler:
+  concurrency: 10
+  timeout: 20
+  max_depth: 3
+  max_urls: 1000
+
+semantic:
+  enabled: true
+  chroma:
+    http: http://localhost:8000
+    collection: seo-content
+    chunk_size: 300
+    chunk_overlap: 50
+
+embedding:
+  provider: ollama
+  model: nomic-embed-text
+  ollama:
+    host: http://localhost:11434
+
+grammar:
+  enabled: true
+  languagetool:
+    enabled: true
+    host: http://localhost:2372
+    timeout: 30
+  ollama:
+    enabled: true
+    model: llama2
+    temperature: 0.7
+    max_tokens: 500
+
+queries:
+  file: ./queries/comprehensive.yaml
+
+report:
+  output: ./reports/seo-report.xlsx
+  sheets:
+    summary: true
+    pages: true
+    issues: true
+    technical: true
+    links: true
+    semantic: true
+    grammar: true

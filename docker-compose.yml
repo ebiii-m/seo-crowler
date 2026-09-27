@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  chroma:
+    image: chromadb/chroma:latest
+    container_name: seo-auditor-chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/blazing
+    environment:
+      - IS_PERSISTENT=true
+      - PERSISTENCE_PATH=/chroma/blazing
+      - ANONYMIZED_TELEMETRY=false
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: seo-auditor-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  languagetool:
+    image: erikvl87/languagetool:latest
+    container_name: seo-auditor-languagetool
+    ports:
+      - "2372:8081"
+    environment:
+      - JAVA_OPTS=-Xmx2g
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/v2/languages"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  chroma_data:
+    driver: local
+  ollama_data:
+    driver: local
+
+networks:
+  default:
+    name: seo-auditor-network

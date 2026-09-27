@@ -1,0 +1,206 @@
+queries:
+  # ============================================
+  # ANCHOR CHECKS - Weak link text detection
+  # ============================================
+
+  - name: weak_anchor_generic
+    type: anchor
+    patterns:
+      - click here
+      - here
+      - read more
+      - learn more
+      - find out more
+      - this link
+      - the link
+      - button
+      - link
+      - more info
+      - details
+      - continue
+
+  - name: weak_anchor_navigation
+    type: anchor
+    patterns:
+      - next
+      - previous
+      - back
+      - forward
+      - go
+      - submit
+
+  - name: weak_anchor_download
+    type: anchor
+    patterns:
+      - download
+      - download now
+      - get it
+      - get file
+
+  - name: weak_anchor_social
+    type: anchor
+    patterns:
+      - follow us
+      - like us
+      - share
+      - connect
+
+  # ============================================
+  # SEMANTIC SEARCH - Content discovery
+  # ============================================
+
+  - name: services_search
+    type: semantic
+    query:
+      - our services
+      - what we offer
+      - services page
+      - service list
+      - what we do
+      - capabilities
+      - solutions
+    threshold: 0.8
+
+  - name: contact_search
+    type: semantic
+    query:
+      - contact us
+      - get in touch
+      - reach out
+      - email us
+      - call us
+      - phone number
+      - contact form
+      - send message
+    threshold: 0.75
+
+  - name: about_search
+    type: semantic
+    query:
+      - about us
+      - about company
+      - who we are
+      - our story
+      - mission
+      - vision
+      - values
+      - team
+    threshold: 0.75
+
+  - name: pricing_search
+    type: semantic
+    query:
+      - pricing
+      - pricing plans
+      - subscription
+      - cost
+      - how much
+      - rates
+      - fees
+      - plans
+      - packages
+    threshold: 0.8
+
+  - name: blog_search
+    type: semantic
+    query:
+      - blog
+      - articles
+      - news
+      - latest posts
+      - read more
+      - insights
+    threshold: 0.7
+
+  - name: careers_search
+    type: semantic
+    query:
+      - careers
+      - jobs
+      - work with us
+      - join our team
+      - hiring
+      - open positions
+      - apply now
+    threshold: 0.75
+
+  - name: faq_search
+    type: semantic
+    query:
+      - frequently asked questions
+      - faq
+      - common questions
+      - help center
+      - support
+    threshold: 0.7
+
+  - name: testimonials_search
+    type: semantic
+    query:
+      - testimonials
+      - reviews
+      - what clients say
+      - case studies
+      - success stories
+      - customer feedback
+    threshold: 0.75
+
+  - name: privacy_search
+    type: semantic
+    query:
+      - privacy policy
+      - terms of service
+      - terms and conditions
+      - cookie policy
+      - gdpr
+      - data protection
+    threshold: 0.8
+
+  - name: signup_search
+    type: semantic
+    query:
+      - sign up
+      - register
+      - create account
+      - join now
+      - get started
+      - free trial
+      - start free
+    threshold: 0.8
+
+  # ============================================
+  # ADDITIONAL SEMANTIC QUERIES FOR E-COMMERCE
+  # ============================================
+
+  - name: product_search
+    type: semantic
+    query:
+      - product
+      - products
+      - shop
+      - buy now
+      - add to cart
+      - purchase
+      - order
+    threshold: 0.75
+
+  - name: shipping_search
+    type: semantic
+    query:
+      - shipping
+      - delivery
+      - free shipping
+      - shipping policy
+      - returns
+      - refund
+    threshold: 0.7
+
+  - name: login_search
+    type: semantic
+    query:
+      - login
+      - sign in
+      - log in
+      - my account
+      - dashboard
+    threshold: 0.8

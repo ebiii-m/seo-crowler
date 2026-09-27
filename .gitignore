@@ -1,0 +1,32 @@
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Reports
+reports/*.xlsx
+reports/*.csv
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# Temporary
+tmp/
+temp/

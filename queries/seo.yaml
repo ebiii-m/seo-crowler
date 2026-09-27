@@ -1,0 +1,45 @@
+queries:
+  - name: weak_anchor
+    type: anchor
+    patterns:
+      - click here
+      - here
+      - read more
+      - learn more
+      - find out more
+      - this link
+      - the link
+      - button
+      - link
+
+  - name: service_search
+    type: semantic
+    query:
+      - our services
+      - what we offer
+      - services page
+    threshold: 0.8
+
+  - name: contact_search
+    type: semantic
+    query:
+      - contact us
+      - get in touch
+      - schedule appointment
+    threshold: 0.75
+
+  - name: pricing_search
+    type: semantic
+    query:
+      - pricing
+      - cost
+      - rates
+    threshold: 0.8
+
+  - name: about_search
+    type: semantic
+    query:
+      - about us
+      - company
+      - mission
+    threshold: 0.75
